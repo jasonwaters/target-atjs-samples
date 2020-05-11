@@ -1,0 +1,31 @@
+{
+  "name": "local-execution-mbox-html",
+  "version": "1.0.0",
+  "description": "Adobe Target at.js, target local execution sample",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "mkdir -p assets && cp ../.assets/* assets",
+    "start": "http-server . -p 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adobe/target-atjs-samples.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "Server",
+    "API",
+    "Adobe",
+    "Target",
+    "MCID",
+    "ECID",
+    "Visitor",
+    "Delivery",
+    "target-local-execution"
+  ],
+  "author": "Adobe Systems Inc.",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}

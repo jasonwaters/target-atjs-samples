@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Target local-execution sample</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" href="https://wwwimages2.adobe.com/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/style.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="assets/script.js"></script>
+	<script type="text/javascript">
+		const clientId = "adobesummit2018";
+		const organizationId = "65453EA95A70434F0A495D34@AdobeOrg";
+
+		window.targetGlobalSettings = {
+			overrideMboxEdgeServer: true,
+			serverDomain: "adobesummit2018.tt.omtrdc.net",
+			clientCode: clientId,
+			imsOrgId: organizationId,
+      pageLoadEnabled: true,
+			executionMode: "local",
+			artifactLocation: "assets/rules.json"
+		};
+
+		window.targetPageParamsAll = () => ({
+			mbox3rdPartyId: "adobetargetdemo"
+		});
+
+	</script>
+
+	<script type="text/javascript" src="assets/at.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<div id="heading" class="py-5">
+		<h1>Target local-execution sample</h1>
+		<div id="offer">
+      <p class="lead">Experience </p>
+		  <img src="assets/demo-marketing-offer1-default.png" class="rounded offer"/>
+    </div>
+	</div>
+
+	<div id="result" class="py-3"></div>
+</div>
+<script type="text/javascript">
+	(function () {
+    adobe.target.getOffers({
+			request: {
+				execute: {
+					pageLoad: {}
+				}
+			}
+		}).then(function (targetResponse) {
+			showResult("Target Response: Success", JSON.stringify(targetResponse, null, 4));
+		}).catch(function (err) {
+			showResult("Target Response: Error", err.toString(), true);
+		})
+	})();
+</script>
+</body>
+</html>

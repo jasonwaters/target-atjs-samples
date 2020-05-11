@@ -1,9 +1,10 @@
 {
-  "name": "target-feature-flag",
+  "name": "local-execution-mbox-json",
   "version": "1.0.0",
-  "description": "Adobe Target at.js, target feature flag sample",
+  "description": "Adobe Target at.js, target local execution sample",
   "main": "index.js",
   "scripts": {
+    "prestart": "mkdir -p assets && cp ../.assets/* assets",
     "start": "http-server . -p 3000"
   },
   "repository": {
