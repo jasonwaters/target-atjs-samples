@@ -1,5 +1,5 @@
 {
-  "name": "local-execution-vec",
+  "name": "feature-flag",
   "version": "1.0.0",
   "description": "Adobe Target at.js, target local execution sample",
   "main": "index.js",

@@ -4,7 +4,7 @@
   "description": "Adobe Target at.js, target local execution sample",
   "main": "index.js",
   "scripts": {
-    "prestart": "mkdir -p assets && cp ../.assets/* assets",
+    "prestart": "rimraf assets && mkdir -p assets && cp ../.assets/* assets",
     "start": "http-server . -p 3000"
   },
   "repository": {
@@ -26,6 +26,7 @@
   "author": "Adobe Systems Inc.",
   "license": "Apache-2.0",
   "dependencies": {
-    "http-server": "^0.12.3"
+    "http-server": "^0.12.3",
+    "rimraf": "^3.0.2"
   }
 }
