@@ -1,30 +1,26 @@
-# Target Local execution sample
+# Target Local execution mbox HTML sample
 
 ## Overview
 
-For this sample, we first created a simple AB activity for the `demo-marketing-offer1` mbox.  It has two experiences, each with JSON offer content.
+For this sample, we first created a simple AB activity for the `demo-marketing-offer2` mbox.  It has two experiences, each with HTML offer content.
 
 ### Experience A
-```json
-{
-    "experience": "A",
-    "asset": "demo-marketing-offer1-exp-A.png"
-}
+```html
+<p class="lead">Experience A</p>
+<img src="assets/demo-marketing-offer1-exp-A.png" class="rounded offer"/>
 ```
 ### Experience B
 
-```json
-{
-    "experience": "B",
-    "asset": "demo-marketing-offer1-exp-B.png"
-}
+```html
+<p class="lead">Experience B</p>
+<img src="assets/demo-marketing-offer1-exp-B.png" class="rounded offer"/>
 ```
 
-As you can see, each experience has a different filename set in the `asset` property.
+As you can see, each experience has an HTMl offer with a different text and image src.
 
-When run, the app server makes a getOffers call, requesting the `demo-marketing-offer1` mbox.  But at.js has been configured to use local execution mode to determine the outcome of the call rather than send a request to the target delivery API.
+When run, the page makes a getOffers call, requesting the `demo-marketing-offer2` mbox.  But at.js has been configured to use local execution mode to determine the outcome of the call rather than send a request to the target delivery API.
 
-When the page is loaded in a browser, an image is shown at the top of the page.  This image comes from one of the two experiences in the activity defined above.  The target response is also shown on the page.
+When the page is loaded in the browser, text and an image is shown at the top of the page.  This image comes from one of the two experiences in the activity defined above.  The target response is also shown on the page.
 
 ## Running the sample
 1. Install dependencies: `npm i`

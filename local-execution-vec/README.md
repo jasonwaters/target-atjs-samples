@@ -1,30 +1,19 @@
-# Target Local execution sample
+# Target Local execution VEC sample
 
 ## Overview
 
-For this sample, we first created a simple AB activity for the `demo-marketing-offer1` mbox.  It has two experiences, each with JSON offer content.
+For this sample, we first created a simple AB activity using the Visual Experience Composer (VEC).  It has two experiences:
 
 ### Experience A
-```json
-{
-    "experience": "A",
-    "asset": "demo-marketing-offer1-exp-A.png"
-}
-```
+![Experience A](vec-exp-a.png)
+
 ### Experience B
 
-```json
-{
-    "experience": "B",
-    "asset": "demo-marketing-offer1-exp-B.png"
-}
-```
+![Experience B](vec-exp-b.png)
 
-As you can see, each experience has a different filename set in the `asset` property.
+As you can see, each experience has a different paragraph text and image.
 
-When run, the app server makes a getOffers call, requesting the `demo-marketing-offer1` mbox.  But at.js has been configured to use local execution mode to determine the outcome of the call rather than send a request to the target delivery API.
-
-When the page is loaded in a browser, an image is shown at the top of the page.  This image comes from one of the two experiences in the activity defined above.  The target response is also shown on the page.
+When the page is loaded in a browser, at.js makes an `execute>pageLoad` request automatically, and the appropriate content is shown.  But, rather than send a request to the target delivery API, at.js has been configured to use local execution mode to determine the outcome of the call. 
 
 ## Running the sample
 1. Install dependencies: `npm i`
