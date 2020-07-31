@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Target local-execution sample</title>
+	<title>Target on-device-decisioning sample</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="icon" href="https://wwwimages2.adobe.com/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -19,8 +19,8 @@
 			serverDomain: "adobesummit2018.tt.omtrdc.net",
 			clientCode: clientId,
 			imsOrgId: organizationId,
-      pageLoadEnabled: false,
-			executionMode: "local",
+      pageLoadEnabled: true,
+			decisioningMethod: "on-device",
 			artifactLocation: "assets/rules.json"
 		};
 	</script>
@@ -30,44 +30,24 @@
 <body>
 <div class="container">
 	<div id="heading" class="py-5">
-		<h1>Target local-execution mbox JSON sample</h1>
-		<p class="lead">Experience </p>
-		<img src="assets/demo-marketing-offer1-default.png" class="rounded offer"/>
+		<h1>Target on-device-decisioning VEC sample</h1>
+		<div id="offer">
+      <p class="lead">Experience </p>
+		  <img src="assets/demo-marketing-offer1-default.png" class="rounded offer"/>
+    </div>
 	</div>
 
 	<div id="result" class="py-3"></div>
 </div>
 <script type="text/javascript">
 	(function () {
-		document.documentElement.style.opacity = "0";
-
-		function updateUI(targetResponse) {
-			const mbox = targetResponse.execute.mboxes.find(mbox => mbox.name === "demo-marketing-offer1");
-			if(mbox.options) {
-
-				const {content} = mbox.options[0];
-
-				const heading = document.querySelector("#heading .lead");
-				const img = document.querySelector("#heading img");
-
-				heading.innerHTML = `Experience ${content.experience}`;
-				img.src = `assets/${content.asset}`;
-			}
-
-			document.documentElement.style.opacity = "1";
-		}
-
     adobe.target.getOffers({
 			request: {
 				execute: {
-					mboxes: [{
-						name: "demo-marketing-offer1",
-						index: 0
-					}]
+					pageLoad: {}
 				}
 			}
 		}).then(function (targetResponse) {
-			updateUI(targetResponse);
 			showResult("Target Response: Success", JSON.stringify(targetResponse, null, 4));
 		}).catch(function (err) {
 			showResult("Target Response: Error", err.toString(), true);

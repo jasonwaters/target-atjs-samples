@@ -1,4 +1,4 @@
-# Target Local execution mbox HTML sample
+# Target on-device decisioning mbox HTML sample
 
 ## Overview
 
@@ -18,7 +18,7 @@ For this sample, we first created a simple AB activity for the `demo-marketing-o
 
 As you can see, each experience has an HTMl offer with a different text and image src.
 
-When run, the page makes a getOffers call, requesting the `demo-marketing-offer2` mbox.  But at.js has been configured to use local execution mode to determine the outcome of the call rather than send a request to the target delivery API.
+When run, the page makes a getOffers call, requesting the `demo-marketing-offer2` mbox.  But at.js has been configured to use on-device decisioning method to determine the outcome of the call rather than send a request to the target delivery API.
 
 When the page is loaded in the browser, text and an image is shown at the top of the page.  This image comes from one of the two experiences in the activity defined above.  The target response is also shown on the page.
 
@@ -30,19 +30,19 @@ When the page is loaded in the browser, text and an image is shown at the top of
 
 ## How it works
 
-This sample utilizes local execution mode to determine target experiences.  By default, at.js always makes a request to the target delivery API for each `getOffers` call.  But you can configure it to use local execution mode instead.  This mode downloads target activity rules on initialization.   The rules are then used to determine which experiences to return when `getOffers` is called, rather than make a request to the delivery API each time.
+This sample utilizes on-device decisioning method to determine target experiences.  By default, at.js always makes a request to the target delivery API for each `getOffers` call.  But you can configure it to use on-device decisioning method instead.  This mode downloads target activity rules on initialization.   The rules are then used to determine which experiences to return when `getOffers` is called, rather than make a request to the delivery API each time.
 
-There are four main properties to keep in mind when using local execution mode:
+There are four main properties to keep in mind when using on-device decisioning method:
 
 | Name                      | Description                                                                         |
 |---------------------------|-------------------------------------------------------------------------------------|
-| executionMode             | The execution mode at.js will run in.  Can be `local`, `remote`, or `hybrid`. Defaults to `remote`      |
+| decisioningMethod         | The decisioning method at.js will run in.  Can be `on-device`, `server-side`, or `hybrid`. Defaults to `server-side`      |
 | artifactLocation          | This is a fully qualified url to the rules definition file that will be used to determine outcomes locally.  |
 | artifactPayload           | A target decisioning JSON artifact. If specified, it is used instead of requesting one from a URL. |
 
 ```js
 window.targetGlobalSettings = {
-    executionMode: "local",
+    decisioningMethod: "on-device",
     artifactLocation: "assets/rules.json"
 };
 
