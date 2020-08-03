@@ -1,7 +1,7 @@
 {
-  "name": "local-execution-mbox-json",
+  "name": "on-device-decisioning-vec",
   "version": "1.0.0",
-  "description": "Adobe Target at.js, target local execution sample",
+  "description": "Adobe Target at.js, target on-device decisioning sample",
   "main": "index.js",
   "scripts": {
     "prestart": "rimraf assets && mkdir -p assets && cp ../.assets/* assets",
@@ -21,7 +21,7 @@
     "ECID",
     "Visitor",
     "Delivery",
-    "target-local-execution"
+    "target-on-device-decisioning"
   ],
   "author": "Adobe Systems Inc.",
   "license": "Apache-2.0",
